@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1505899040 source:c:\users\ibrahim\desktop\datastructure\week0\balanced_brackets\main.cpp
-	<iostream>
-	<queue>
-	<vector>
-
