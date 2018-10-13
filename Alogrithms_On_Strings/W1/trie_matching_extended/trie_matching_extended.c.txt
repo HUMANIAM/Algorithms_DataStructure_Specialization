@@ -1,0 +1,120 @@
+#include <algorithm>
+#include <cassert>
+#include <cstdio>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include <set>
+
+using namespace std;
+
+typedef map<char, int> edges;
+typedef vector<edges> trie;
+
+int const Letters =    4;
+int const NA      =   -1;
+
+struct Node
+{
+	int next [Letters];
+
+	Node ()
+	{
+		fill (next, next + Letters, NA);
+	}
+
+	bool isLeaf () const
+	{
+	    return (next[0] == NA && next[1] == NA && next[2] == NA && next[3] == NA);
+	}
+};
+
+int letterToIndex (char letter)
+{
+	switch (letter)
+	{
+		case 'A': return 0; break;
+		case 'C': return 1; break;
+		case 'G': return 2; break;
+		case 'T': return 3; break;
+		default: assert (false); return -1;
+	}
+}
+
+trie build_trie(const vector<string> & patterns) {
+  int index = 1;
+  trie t;
+  t.push_back(map<char, int>());   //initialize trie with root map
+
+  //iterate through patterns
+  for(size_t i=0; i<patterns.size(); i++){
+    int curnode = 0;
+
+    //iterate through pattern
+    for(size_t j=0; j<patterns[i].size(); j++){
+        char c = patterns[i][j];
+
+        if(t[curnode].find(c) == t[curnode].end() ){
+            t[curnode][c] = index;    //put new edge
+            curnode = index++;
+            t.push_back(map<char, int>());
+
+        }else curnode = t[curnode][c];
+    }
+    t[curnode]['$'] = 0;
+  }
+
+  return t;
+}
+
+int prefixTrieMatching(const string& txt, trie & t, int k, size_t& n){
+    int curnode = 0;
+
+    for(int i=k; i<n; i++){
+        char c = txt[i];
+
+        if(t[curnode].find('$') != t[curnode].end())
+            return k;                                            // it is a leaf node so text match a pattern in trie
+        else if(t[curnode].find(c) != t[curnode].end())
+            curnode = t[curnode][c];                                //edge matches. move to the next edge
+        else
+            return -1;                                           //no matching found
+    }
+
+    if(t[curnode].find('$') != t[curnode].end()) return k;
+    else  return -1;
+
+}
+
+
+void trieMatching (const string& text, const vector <string>& patterns, set<int>& ans)
+{
+	vector <int> result;
+	trie t = build_trie(patterns);
+    size_t n = text.size();
+
+	for(size_t i=0; i<n; i++){
+        int pos = prefixTrieMatching(text, t, i, n);
+        if(pos != -1) ans.insert(pos);
+	}
+}
+
+int main (void)
+{
+    int n;
+	string text;
+	cin >> text>>n;
+
+	vector <string> patterns (n);
+	for (int i = 0; i < n; i++)
+        cin >> patterns[i];
+
+    set<int> ans;
+    trieMatching (text, patterns, ans);
+
+	for(auto el : ans) cout<<el<<" ";
+    cout<<endl;
+
+	return 0;
+}

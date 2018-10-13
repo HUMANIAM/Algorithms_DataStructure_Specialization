@@ -1,0 +1,90 @@
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
+using namespace std;
+
+struct Position{
+    int v, i;
+    Position(int x, int y):i(x), v(y){}
+};
+
+struct Pos{
+    int from, len, veci;
+    Pos(int x, int y):from(x),len(y){}
+};
+
+typedef map<char, struct Position*> edges;
+typedef vector<edges> trie;
+//build the suffix trie for all suffixes of the text
+
+trie build_trie(const string& txt) {
+  int index = 1;
+  trie t;
+  t.push_back(map<char, struct Position*>());   //initialize trie with root map
+
+//  //iterate through patterns
+  for(size_t i=0; i<txt.size(); i++){
+    int curnode = 0;
+
+//    //iterate through pattern
+    for(size_t j=i; j<txt.size(); j++){
+         char c = txt[j];
+
+        if(t[curnode].find(c) == t[curnode].end()){
+            t[curnode][c]=new Position(j, index);
+            if(c!='$'){
+               t.push_back(map<char, struct Position*>());
+               curnode = index++;    //put new edge
+            }
+        }else
+            curnode = t[curnode][c]->v;            //go to the edge related to the char in the vector of edges
+    }
+  }
+
+  return t;
+}
+// Build a suffix tree of the string text and return a vector
+// with all of the labels of its edges (the corresponding
+// substrings of the text) in any order.
+void dfs(trie& t, int v, struct Pos p, vector<struct Pos*>& res){
+    p.len++;
+    for(const auto& node : t[v]){
+            struct Pos pp = p;
+
+            //update info about current edge
+          if(pp.from==-1)
+            pp.from = (node.second)->i;
+
+          //if end of text
+          if(node.first == '$')
+            res.push_back(new Pos(pp.from, pp.len));
+          else{
+            if(t[(node.second)->v].size()>1){
+                res.push_back(new Pos(pp.from, pp.len));
+                struct Pos ppp (-1, 0);
+                dfs(t, (node.second)->v, ppp, res);
+            }else
+                dfs(t, (node.second)->v, pp, res);
+          }
+    }
+}
+
+vector<struct Pos*> ComputeSuffixTreeEdges(const string& text) {
+  vector<struct Pos*> res;
+  struct Pos p (-1, 0);
+
+  trie t = build_trie(text);
+  dfs(t, 0, p, res);
+  return res;
+}
+
+int main() {
+    string text;
+    cin >> text;
+    vector<struct Pos*> edges = ComputeSuffixTreeEdges(text);
+    for (int i = 0; i < edges.size(); ++i)
+        cout << text.substr(edges[i]->from, edges[i]->len) << endl;
+
+  return 0;
+}
