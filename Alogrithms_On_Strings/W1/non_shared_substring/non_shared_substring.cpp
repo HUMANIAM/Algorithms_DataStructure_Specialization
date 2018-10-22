@@ -5,7 +5,9 @@
 #include <vector>
 
 using namespace std;
-
+//T1 : substring only text1
+//T2 : substring only in text2
+//T12 : shared between text 1 and text 2
 enum Type{T1, T2, T12};
 
 struct Pos{
@@ -31,7 +33,7 @@ void createBranches(const string& txt, int n, suffixTree& t, int curnode, int j,
         if(t[curnode].find(c) == t[curnode].end()){
             t[curnode][c]=new Pos(j, n-j, type);
         }else{
-            //if the node has a child = current cur continue diving till reach a point to branch
+            //if the node has a child = current char continue comparing till reach a point to branch
             int from = ((t[curnode][c])->from);
             int len = ((t[curnode][c])->len);
             int veci = ((t[curnode][c])->veci);
@@ -39,7 +41,7 @@ void createBranches(const string& txt, int n, suffixTree& t, int curnode, int j,
             int k = from + 1;
             j++;
 
-            //comparing the remaining of suffixes
+            //comparing the remaining of chars of suffix with edges's chars
             while((k-from)<len && txt[j]==txt[k]){j++; k++;}
 
             //update the current edge length
@@ -95,7 +97,7 @@ void minMisMatchSubStr(suffixTree& sufTree, const string& text, int len, int ind
     for(const auto& mpe : sufTree[index]){
         int type = (mpe.second)->type;
 
-        //if edge is substring in text1
+        //if edge is only substring in text1
         if(type == T1 && mpe.first != '$'){
             if(len + 1 < res.len){
                 res.from = ((mpe.second)->from - len);
