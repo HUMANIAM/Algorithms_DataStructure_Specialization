@@ -17,15 +17,15 @@ there are many reasons push me to spend good time with algorithms and their impl
 ## Courses and Their content
 
 - [algorithms toolbox](https://www.coursera.org/learn/algorithmic-toolbox)
-	- Week 1 : * stress testing : test your efficient algorithm vs your naive algorithms by generating 								  rondom test cases. starting with small output and edge cases
+	- Week 1 : 
+		- stress testing : test your efficient algorithm vs your naive algorithms by generating 						   rondom test cases. starting with small output and edge cases
 
-			   * complexity notations : bigO() : upper limit of your algorithm
-			   							Theta() : lower limit of your algorithm
-			   							omega() : if algorithm upper limit equal lower limit
+		- complexity notations : bigO() : upper limit of your algorithm
+			   					 Theta() : lower limit of your algorithm
+			   					 omega() : if algorithm upper limit equal lower limit
 
 
 	- Week 2 : * Fibonancci Numbers and other maths Functions like gcd(), lcm()
 
 	
-
 
