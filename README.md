@@ -34,10 +34,9 @@ there are many reasons push me to spend good time with algorithms and their impl
 		 	- [more probelems](https://github.com/HUMANIAM/Competitve-Programming-Problems/tree/master/Fibonancci%20series)
 
 	- **Week 3** :
-			- **Gready algorithms**
-			  - [specialization problems](https://github.com/HUMANIAM/Algorithms_DataStructure_Specialization/tree/master/Algorithms%20Toolbox/W3)
-
-			  - [more problems](https://github.com/HUMANIAM/Competitve-Programming-Problems/tree/master/Greedy_Technique)
+		- **Gready algorithms**
+			- [specialization problems](https://github.com/HUMANIAM/Algorithms_DataStructure_Specialization/tree/master/Algorithms%20Toolbox/W3)
+			- [more problems](https://github.com/HUMANIAM/Competitve-Programming-Problems/tree/master/Greedy_Technique)
 
 	
 
