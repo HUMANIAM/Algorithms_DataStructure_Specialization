@@ -17,15 +17,26 @@ there are many reasons push me to spend good time with algorithms and their impl
 ## Courses and Their content
 
 - [algorithms toolbox](https://www.coursera.org/learn/algorithmic-toolbox)
-	- Week 1 : 
-		- stress testing : test your efficient algorithm vs your naive algorithms by generating 						   rondom test cases. starting with small output and edge cases
+	- **Week 1** :
 
-		- complexity notations : bigO() : upper limit of your algorithm
-			   					 Theta() : lower limit of your algorithm
-			   					 omega() : if algorithm upper limit equal lower limit
+		- **stress testing** : 
+			test your efficient algorithm vs your naive algorithms by generating 						   rondom test cases. starting with small output and edge cases
+
+		- **complexity notations** : 
+			bigO() : upper limit of your algorithm
+			Theta() : lower limit of your algorithm
+			omega() : if algorithm upper limit equal lower limit
 
 
-	- Week 2 : * Fibonancci Numbers and other maths Functions like gcd(), lcm()
+	- **Week 2** : 
+		- **Fibonancci Numbers and other maths Functions like gcd(), lcm()**
+		 	- [specialization problems](https://github.com/HUMANIAM/Algorithms_DataStructure_Specialization/tree/master/Algorithms%20Toolbox/W2)
+		 	- [more probelems](https://github.com/HUMANIAM/Competitve-Programming-Problems/tree/master/Fibonancci%20series)
+
+	- **Week 3** :
+			- **Gready algorithms**
+				- [specialization problems](https://github.com/HUMANIAM/Algorithms_DataStructure_Specialization/tree/master/Algorithms%20Toolbox/W3)
+				- [more problems](https://github.com/HUMANIAM/Competitve-Programming-Problems/tree/master/Greedy_Technique)
 
 	
 
