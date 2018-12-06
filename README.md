@@ -33,14 +33,14 @@ there are many reasons push me to spend good time with algorithms and their impl
 		 	- [specialization problems](https://github.com/HUMANIAM/Algorithms_DataStructure_Specialization/tree/master/Algorithms%20Toolbox/W2)
 		 	- [more probelems](https://github.com/HUMANIAM/Competitve-Programming-Problems/tree/master/Fibonancci%20series)
 
-	- **Week 2** : 
-		- **Fibonancci Numbers and other maths Functions like gcd(), lcm()**
-			- [specialization problems](https://github.com/HUMANIAM/Algorithms_DataStructure_Specialization/tree/master/Algorithms%20Toolbox/W2)
-		 	- [more probelems](https://github.com/HUMANIAM/Competitve-Programming-Problems/tree/master/Fibonancci%20series)
+	- **Week 3** : 
+		- **Greedy algorithm**
+			- [specialization problems](https://github.com/HUMANIAM/Algorithms_DataStructure_Specialization/tree/master/Algorithms%20Toolbox/W3)
+		 	- [more probelems](https://github.com/HUMANIAM/Competitve-Programming-Problems/tree/master/Greedy_Technique)
 
 	- **Week 3** :
-		- **Gready algorithms**
-			- [specialization problems](https://github.com/HUMANIAM/Algorithms_DataStructure_Specialization/tree/master/Algorithms%20Toolbox/W3)
+		- **Divide and Conquer**
+			- [specialization problems](https://github.com/HUMANIAM/Algorithms_DataStructure_Specialization/tree/master/Algorithms%20Toolbox/W4)
 			- [more problems](https://github.com/HUMANIAM/Competitve-Programming-Problems/tree/master/Greedy_Technique)
 
 	
